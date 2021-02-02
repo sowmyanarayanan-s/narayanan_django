@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+<form action="search" method="GET">
+    <input type="search" name="keyword" placeholder="Type Author Name or Software Name">
+    <br><br>
+    <input type="text" name="year" placeholder="Enter year">
+    <br><br>
+    <input type="submit" value="Search" >
+    <br><br>
+    </form>
+    <form action="sorting">
+        <label for="sort">sort by:</label>
+        <select name="sort">
+          <option value="high_to_low">high to low</option>
+          <option value="low_to_high">low to high</option>
+          
+        </select>
+        <input type="submit" value="Submit">
+      </form>
+      <br><br>
+    <table>
+    <tr>
+    <td>
+    Name
+    </td>
+    <td>
+    Author
+    </td>
+    <td>
+    Version
+    </td>
+    <td>
+    Year
+    </td>
+    <td>
+    Price
+    </td>
+    </tr>
+   {% for dict_item in data %}
+   <tr>
+   {% for key, value in dict_item.items %}
+      <td>
+      {{ value }}
+      </td>
+   {% endfor %}
+   </tr>
+{% endfor %}
+</table>
+</body>
+</html>
